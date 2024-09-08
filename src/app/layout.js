@@ -1,7 +1,13 @@
-import { Inter } from "next/font/google";
+import { Noto_Sans_Arabic } from "next/font/google";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoSansArabic = Noto_Sans_Arabic({ subsets: ["arabic"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +16,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" dir="rtl">
+      <body className={notoSansArabic.className}>
+        <main className="flex min-h-screen overflow-x-hidden flex-col items-center justify-between">
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }
